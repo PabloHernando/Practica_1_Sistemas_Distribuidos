@@ -48,7 +48,7 @@
       var messages = document.getElementById('messages');
       var form = document.getElementById('form');
       var input = document.getElementById('input');
-      var open;
+      //var open;
 
       form.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -62,22 +62,23 @@
         e.preventDefault();
         socket.off();
         div.innerHTML = 
-          `<h1>Socket Disconected, Press the button to Reconnect</h1>
+          `<h1 text-align = "center" align = "center">Socket Disconected, Press             the button to Reconnect</h1>
           <form id="open" action="" align = "center">
             <button id = "closeButton">Reconnect</button>
-          </form>"`;
-        open = document.getElementById('open');
+          </form>`;
+        // open = document.getElementById('open');
       });
 
-      open.addEventListener('submit', function(e) {
-        e.preventDefault();
-        socket.on('chat message', function(msg) {
-          var item = document.createElement('li');
-          item.textContent = msg;
-          messages.appendChild(item);
-          window.scrollTo(0, document.body.scrollHeight);
-        });
-      });
+      // open.addEventListener('submit', function(e) {
+      //   e.preventDefault();
+      //   div.innerHTML = `<ul id="messages"></ul>`
+      //   socket.on('chat message', function(msg) {
+      //     var item = document.createElement('li');
+      //     item.textContent = msg;
+      //     messages.appendChild(item);
+      //     window.scrollTo(0, document.body.scrollHeight);
+      //   });
+      // });
       
       socket.on('chat message', function(msg) {
         var item = document.createElement('li');
